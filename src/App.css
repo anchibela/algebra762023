@@ -101,3 +101,8 @@
 .user-repositories li a:hover {
   text-decoration: underline;
 }
+
+.btn {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
