@@ -48,3 +48,56 @@
   max-width: 100px;
   max-height: 100px;
 }
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+}
+
+.user-details {
+  margin-left: 20px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.bio {
+  margin-top: 5px;
+}
+
+.location {
+  margin-top: 5px;
+}
+
+.user-repositories {
+  margin-top: 20px;
+}
+
+.user-repositories h2 {
+  margin-bottom: 10px;
+}
+
+.user-repositories ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.user-repositories li {
+  margin-bottom: 5px;
+}
+
+.user-repositories li a {
+  text-decoration: none;
+  color: #0366d6;
+}
+
+.user-repositories li a:hover {
+  text-decoration: underline;
+}

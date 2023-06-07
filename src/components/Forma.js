@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import UserInfo from "./UserInfo";
+import UserRepositories from "./UserRepositories";
 
 function Forma() {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [repositories, setRepositories] = useState([]);
 
   const fetchUserData = () => {
     fetch(`https://api.github.com/users/${username}`)
@@ -18,10 +20,24 @@ function Forma() {
       .then((data) => {
         setUser(data);
         setError(null);
+        fetchUserRepositories();
       })
       .catch((error) => {
         setError(error.message);
+        setRepositories([]);
         setUser(null);
+      });
+  };
+
+  const fetchUserRepositories = () => {
+    fetch(`https://api.github.com/users/${username}/repos`)
+      .then((response) => response.json())
+      .then((data) => {
+        setRepositories(data);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setRepositories([]);
       });
   };
 
@@ -58,6 +74,9 @@ function Forma() {
           </form>
           {error && <p className="error-message">{error}</p>}
           {user && <UserInfo user={user} />}
+          {repositories.length > 0 && (
+            <UserRepositories repositories={repositories} />
+          )}
         </div>
       </div>
     </div>
