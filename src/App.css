@@ -43,3 +43,8 @@
   align-items: center;
   height: 100vh;
 }
+
+.avatar {
+  max-width: 100px;
+  max-height: 100px;
+}
